@@ -1,26 +1,64 @@
+/* app/globals.css
+   Styles globaux et tokens de la charte graphique ATG SARLU.
+   SOURCE UNIQUE des couleurs et des polices : on ne met jamais de code
+   couleur (#...) directement dans les composants, on utilise les classes
+   générées ici (bg-navy, text-gold-dark, font-heading…). */
+
+/* Charge Tailwind : reset CSS de base ("preflight") + toutes les classes utilitaires. */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------------
+   COULEURS
+   Chaque --color-XXX génère les classes bg-XXX, text-XXX, border-XXX…
+   ------------------------------------------------------------------ */
+@theme {
+  /* Supprime la palette par défaut de Tailwind (red-500, blue-600…).
+     Une classe hors charte comme "text-red-500" ne produira aucun style.
+     Ça garantit que le site reste dans la charte. */
+  --color-*: initial;
+
+  /* Le blanc fait partie de la palette par défaut : il faut le redéclarer. */
+  --color-white: #ffffff;
+
+  /* Bleu marine : couleur principale (textes, bandeaux, en-têtes). */
+  --color-navy: #002148;
+  --color-navy-deep: #001530; /* pied de page, zones très sombres */
+  --color-navy-light: #1d3451; /* survols et séparateurs sur fond marine */
+
+  /* Doré : couleur d'accent. RÈGLES DE CONTRASTE (mesurées, norme WCAG 2) :
+     - gold       : fonds de boutons (texte marine dessus : 4,89 ✅), traits, icônes.
+                    JAMAIS en texte sur fond clair (2,91 sur crème ❌).
+     - gold-light : texte et icônes SUR FOND MARINE (7,44 ✅).
+     - gold-dark  : texte doré SUR FOND CLAIR (4,77 sur crème, 5,36 sur blanc ✅). */
+  --color-gold: #bd830b;
+  --color-gold-light: #e3a62b;
+  --color-gold-dark: #8f6208;
+  --color-gold-tint: #f6e9cc; /* fond de pastilles et de surlignage */
+
+  /* Fonds et neutres. */
+  --color-cream: #f7f1e7; /* fond principal du site */
+  --color-line: #e4dccb; /* bordures fines sur fond clair */
+  --color-ink-muted: #4a5b73; /* texte secondaire (6,92 sur blanc ✅) */
 }
 
+/* ------------------------------------------------------------------
+   POLICES
+   "inline" : Tailwind écrit directement var(--font-inter) dans les classes,
+   au lieu de passer par une variable intermédiaire --font-sans.
+   C'est la forme recommandée par la doc de Next pour next/font, car les
+   variables --font-inter et --font-poppins sont créées par Next sur <html>,
+   pas par Tailwind.
+   ------------------------------------------------------------------ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --font-sans est la police PAR DÉFAUT de toute la page dans Tailwind.
+     Après Inter, des polices de secours si Inter ne charge pas. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Génère la classe "font-heading", qu'on mettra sur les titres. */
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Fond et couleur de texte par défaut de tout le site. */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-navy);
 }
