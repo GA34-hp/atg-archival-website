@@ -1,0 +1,11 @@
+{
+  "name": "ATG SARLU - Archives Treatment General",
+  "short_name": "ATG",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#002148",
+  "background_color": "#F7F1E7",
+  "display": "standalone"
+}

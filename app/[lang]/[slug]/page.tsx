@@ -5,11 +5,10 @@
 // chaque langue a son propre slug, lu dans la table de routes.ts.
 
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { isLocale, localeNames, locales } from "@/lib/i18n/config";
+import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { getPageKey, getPath, pageKeys, pageSlugs } from "@/lib/i18n/routes";
+import { getPageKey, pageKeys, pageSlugs } from "@/lib/i18n/routes";
 
 // Génération "du haut vers le bas" : Next appelle cette fonction UNE FOIS PAR
 // LANGUE produite par le layout parent, en lui passant { params: { lang } }.
@@ -30,7 +29,7 @@ async function resolvePage(params: Promise<{ lang: string; slug: string }>) {
   if (!isLocale(lang)) notFound();
   const pageKey = getPageKey(lang, slug);
   if (!pageKey) notFound();
-  return { lang, pageKey, dict: getDictionary(lang) };
+  return { pageKey, dict: getDictionary(lang) };
 }
 
 export async function generateMetadata({
@@ -41,23 +40,12 @@ export async function generateMetadata({
 }
 
 export default async function InnerPage({ params }: PageProps<"/[lang]/[slug]">) {
-  const { lang, pageKey, dict } = await resolvePage(params);
+  const { pageKey, dict } = await resolvePage(params);
 
   return (
-    <main className="mx-auto max-w-5xl space-y-6 px-5 py-12">
+    <div className="mx-auto max-w-5xl space-y-6 px-5 py-12">
       <h1 className="font-heading text-3xl font-bold uppercase">{dict.pages[pageKey].title}</h1>
       <p className="text-ink-muted">{dict.common.contentComing}</p>
-      {/* LIENS DE LANGUE TEMPORAIRES : la MÊME page dans chaque autre langue
-          (/fr/a-propos → /en/about), grâce à la clé de page. */}
-      <p className="flex gap-4 text-sm">
-        {locales
-          .filter((other) => other !== lang)
-          .map((other) => (
-            <Link key={other} href={getPath(other, pageKey)} hrefLang={other} lang={other}>
-              {localeNames[other]}
-            </Link>
-          ))}
-      </p>
-    </main>
+    </div>
   );
 }

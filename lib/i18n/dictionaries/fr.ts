@@ -27,6 +27,24 @@ const fr = {
     whyUs: { title: "Pourquoi nous choisir" },
     contact: { title: "Contactez-nous" },
   },
+  // En-tête du site (étape 3.4).
+  header: {
+    skipToContent: "Aller au contenu principal",
+    homeLink: "ATG SARLU – Accueil",
+    mainNav: "Navigation principale",
+    menuOpen: "Ouvrir le menu",
+    menuClose: "Fermer le menu",
+    languageSwitcher: "Choix de la langue",
+    cta: "Contactez-nous",
+  },
+  // Pied de page (étape 3.4).
+  footer: {
+    signature: "Organiser – Sécuriser – Valoriser",
+    navTitle: "Navigation",
+    contactTitle: "Contact",
+    address: "Maetur Biteng, Yaoundé, Cameroun",
+    rights: "Tous droits réservés.",
+  },
   common: {
     contentComing: "Contenu en cours de rédaction.",
   },

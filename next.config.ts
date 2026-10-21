@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
   // optimisation, et on fournira nous-mêmes des images déjà en WebP aux bonnes tailles.
   images: { unoptimized: true },
 
+  // Active app/global-not-found.tsx : la page 404 du site (out/404.html).
+  // ⚠️ Option EXPÉRIMENTALE de Next.js : elle peut changer dans une future
+  // version. Notre version de Next est fixée (16.4.2) : à revérifier à chaque
+  // mise à jour de Next. Sans elle, out/404.html est la page 404 par défaut de
+  // Next (en anglais, sans la charte).
+  experimental: {
+    globalNotFound: true,
+  },
+
   // Généré par create-next-app : indique à Turbopack (l'outil de build de Next 16)
   // de passer tous les fichiers .css par le moteur de Tailwind v4.
   // C'est ce qui transforme les classes Tailwind (bg-..., text-...) en vrai CSS.

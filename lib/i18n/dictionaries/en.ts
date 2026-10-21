@@ -28,6 +28,22 @@ const en: Dictionary = {
     whyUs: { title: "Why choose us" },
     contact: { title: "Contact us" },
   },
+  header: {
+    skipToContent: "Skip to main content",
+    homeLink: "ATG SARLU – Home",
+    mainNav: "Main navigation",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    languageSwitcher: "Language selection",
+    cta: "Contact us",
+  },
+  footer: {
+    signature: "Organise – Secure – Enhance",
+    navTitle: "Navigation",
+    contactTitle: "Contact",
+    address: "Maetur Biteng, Yaoundé, Cameroon",
+    rights: "All rights reserved.",
+  }, 
   common: {
     contentComing: "Content in progress.",
   },
