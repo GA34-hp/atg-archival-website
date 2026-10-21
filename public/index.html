@@ -1,0 +1,25 @@
+<!doctype html>
+<!--
+  public/index.html — PAGE DE SECOURS pour l'adresse "/".
+  En production, Cloudflare redirige "/" vers "/fr" grâce à public/_redirects,
+  et cette page n'est jamais affichée. Elle sert si le site est servi sans
+  _redirects (ex. : "npm run preview" en local, ou un autre hébergeur).
+-->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Redirection immédiate (0 seconde) vers la version française, sans JavaScript. -->
+    <meta http-equiv="refresh" content="0; url=/fr" />
+    <!-- Cette page ne doit pas apparaître dans les moteurs de recherche. -->
+    <meta name="robots" content="noindex" />
+    <title>ATG SARLU</title>
+  </head>
+  <body>
+    <!-- Liens visibles si la redirection automatique est bloquée par le navigateur. -->
+    <p>
+      <a href="/fr">Accéder au site (français)</a> ·
+      <a href="/en" hreflang="en" lang="en">Go to the website (English)</a>
+    </p>
+  </body>
+</html>

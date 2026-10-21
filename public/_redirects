@@ -1,0 +1,6 @@
+# public/_redirects — lu par Cloudflare Pages (copié tel quel dans out/ au build).
+# Format : [source] [destination] [code]
+# L'accueil "/" n'existe dans aucune langue : on envoie vers le français (langue par défaut).
+# 302 = redirection temporaire, pour pouvoir plus tard choisir la langue autrement
+# sans que les navigateurs aient mémorisé définitivement la redirection.
+/ /fr 302
