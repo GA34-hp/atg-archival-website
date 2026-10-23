@@ -19,6 +19,10 @@ const fr = {
     whyUs: "Pourquoi nous choisir",
     contact: "Contact",
   },
+  // Page d'accueil (complétée à l'étape 3.6).
+  home: {
+    servicesCta: "Découvrir nos services",
+  },
   // Contenu de chaque page (complété à l'étape 3.6).
   pages: {
     about: { title: "À propos" },

@@ -21,6 +21,9 @@ const en: Dictionary = {
     whyUs: "Why choose us",
     contact: "Contact",
   },
+  home: {
+    servicesCta: "Discover our services",
+  },
   pages: {
     about: { title: "About us" },
     services: { title: "Our services" },
@@ -43,7 +46,7 @@ const en: Dictionary = {
     contactTitle: "Contact",
     address: "Maetur Biteng, Yaoundé, Cameroon",
     rights: "All rights reserved.",
-  }, 
+  },
   common: {
     contentComing: "Content in progress.",
   },
