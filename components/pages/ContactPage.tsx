@@ -1,15 +1,16 @@
 // components/pages/ContactPage.tsx
-// Page Contact : coordonnées. Le formulaire (étape 3.7) et la carte (étape 3.8)
-// seront ajoutés ici.
+// Page Contact : coordonnées + formulaire (étape 3.7).
+// La carte sera ajoutée à l'étape 3.8.
 
 import { Mail, MapPin, Phone } from "lucide-react";
+import {ContactForm} from "@/components/contact/ContactForm"
 import type { ContentProps } from "@/components/sections/types";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteContact } from "@/lib/site";
 
-export function ContactPage({ dict }: Pick<ContentProps, "dict">) {
+export function ContactPage({ lang, dict }: ContentProps) {
   return (
     <Section tone="cream" labelledBy="page-title">
       <SectionHeading level="h1" id="page-title" title={dict.pages.contact.title} />
@@ -46,6 +47,11 @@ export function ContactPage({ dict }: Pick<ContentProps, "dict">) {
           </div>
         </div>
       </address>
+      
+      {/* Formulaire sur fond blanc, dans une carte. */}
+      <div className="mt-10 rounded-2xl border border-line bg-white p-6 md:p-10">
+        <ContactForm lang={lang} texts={dict.contact.form} />
+      </div>
     </Section>
   );
 }

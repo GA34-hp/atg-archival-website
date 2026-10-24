@@ -39,6 +39,14 @@
   --color-cream: #f7f1e7; /* fond principal du site */
   --color-line: #e4dccb; /* bordures fines sur fond clair */
   --color-ink-muted: #4a5b73; /* texte secondaire (6,92 sur blanc ✅) */
+  
+  /* États du formulaire (étape 3.7). Contrastes mesurés (WCAG 2) :
+     error sur blanc 6,54 ✅ / sur error-bg 5,62 ✅
+     success sur blanc 6,29 ✅ / sur success-bg 5,36 ✅ */
+  --color-error: #b3261e;
+  --color-error-bg: #fbeaea;
+  --color-success: #2f6b4f;
+  --color-success-bg: #e3f0e8;
 }
 
 /* ------------------------------------------------------------------

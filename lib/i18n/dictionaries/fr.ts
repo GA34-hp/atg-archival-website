@@ -137,6 +137,52 @@ const fr = {
     phoneLabel: "Téléphone",
     emailLabel: "Email",
     addressLabel: "Adresse",
+    // Formulaire de contact (étape 3.7).
+    form: {
+      title: "Envoyez-nous un message",
+      privacy: "Vos informations servent uniquement à répondre à votre demande.",
+      optional: "(facultatif)",
+      labels: {
+        name: "Nom",
+        email: "Email",
+        phone: "Téléphone",
+        message: "Message",
+      },
+      // Messages d'erreur : un par champ ET par code de validation.
+      errors: {
+        name: {
+          required: "Indiquez votre nom.",
+          tooShort: "Votre nom doit contenir au moins 2 caractères.",
+          tooLong: "Votre nom ne doit pas dépasser 100 caractères.",
+          invalid: "Votre nom doit tenir sur une seule ligne.",
+        },
+        email: {
+          required: "Indiquez votre adresse email.",
+          tooShort: "Adresse email trop courte.",
+          tooLong: "Adresse email trop longue.",
+          invalid: "Adresse email invalide (exemple : nom@domaine.com).",
+        },
+        phone: {
+          required: "Indiquez votre numéro de téléphone.",
+          tooShort: "Numéro trop court.",
+          tooLong: "Numéro trop long.",
+          invalid: "Numéro invalide : chiffres, espaces, +, - et parenthèses uniquement.",
+        },
+        message: {
+          required: "Écrivez votre message.",
+          tooShort: "Votre message doit contenir au moins 10 caractères.",
+          tooLong: "Votre message ne doit pas dépasser 2 000 caractères.",
+          invalid: "Message invalide.",
+        },
+      },
+      captchaRequired: "Cochez la case « Je ne suis pas un robot ».",
+      submit: "Envoyer le message",
+      sending: "Envoi en cours…",
+      success: "Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement.",
+      errorNetwork: "Connexion impossible. Vérifiez votre connexion Internet, puis réessayez.",
+      errorFailed:
+        "Votre message n'a pas pu être envoyé. Réessayez, ou contactez-nous par téléphone ou par email.",
+    },
   },
   // En-tête du site.
   header: {
