@@ -22,7 +22,7 @@ import {
   type ContactFormErrors,
   type ContactFormValues,
 } from "@/lib/contact/validation";
-import { Recaptcha } from "../../lib/contact/Recaptcha";
+import { Recaptcha } from "./Recaptcha";
 
 type ContactFormProps = {
   lang: string;
