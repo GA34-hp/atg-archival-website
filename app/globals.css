@@ -47,6 +47,10 @@
   --color-error-bg: #fbeaea;
   --color-success: #2f6b4f;
   --color-success-bg: #e3f0e8;
+  
+  /* Vert WhatsApp foncé (étape 3.8) : reconnaissable, et assez contrasté
+     pour un bouton : icône blanche 4,14 ✅ ; bouton sur crème 3,68 ✅ (≥ 3). */
+  --color-whatsapp: #128c7e;
 }
 
 /* ------------------------------------------------------------------

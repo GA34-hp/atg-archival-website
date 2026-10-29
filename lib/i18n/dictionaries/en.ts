@@ -129,6 +129,13 @@ const en: Dictionary = {
     phoneLabel: "Phone",
     emailLabel: "Email",
     addressLabel: "Address",
+    map: {
+      title: "Find us",
+      notice: "The map is provided by Google Maps. Displaying it sends connection data to Google.",
+      show: "Show the map",
+      open: "Open in Google Maps",
+      iframeTitle: "Google Maps: ATG SARLU, Maetur Biteng, Yaoundé",
+    },
     form: {
       title: "Send us a message",
       privacy: "Your information is only used to answer your request.",
@@ -172,6 +179,13 @@ const en: Dictionary = {
       errorNetwork: "Connection failed. Please check your internet connection and try again.",
       errorFailed: "Your message could not be sent. Please try again, or contact us by phone or email.",
     },
+  },
+  // Boutons flottants d'appel et WhatsApp (étape 3.8).
+  quickContact: {
+    label: "Contact rapide",
+    call: "Appeler ATG SARLU",
+    whatsapp: "Écrire à ATG SARLU sur WhatsApp",
+    whatsappMessage: "Bonjour ATG SARLU, je vous contacte depuis votre site Internet.",
   },
   header: {
     skipToContent: "Skip to main content",

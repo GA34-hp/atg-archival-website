@@ -1,9 +1,9 @@
 // components/pages/ContactPage.tsx
-// Page Contact : coordonnées + formulaire (étape 3.7).
-// La carte sera ajoutée à l'étape 3.8.
+// Page Contact : coordonnées + formulaire (étape 3.7) + carte (étape 3.8).
 
 import { Mail, MapPin, Phone } from "lucide-react";
-import {ContactForm} from "@/components/contact/ContactForm"
+import { ContactForm } from "@/components/contact/ContactForm";
+import { MapEmbed } from "@/components/contact/MapEmbed";
 import type { ContentProps } from "@/components/sections/types";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { Section } from "@/components/ui/Section";
@@ -47,10 +47,16 @@ export function ContactPage({ lang, dict }: ContentProps) {
           </div>
         </div>
       </address>
-      
+
       {/* Formulaire sur fond blanc, dans une carte. */}
       <div className="mt-10 rounded-2xl border border-line bg-white p-6 md:p-10">
         <ContactForm lang={lang} texts={dict.contact.form} />
+      </div>
+
+      {/* Carte de localisation (cahier des charges). */}
+      <div className="mt-10 space-y-6">
+        <h2 className="font-heading text-2xl font-bold">{dict.contact.map.title}</h2>
+        <MapEmbed texts={dict.contact.map} />
       </div>
     </Section>
   );

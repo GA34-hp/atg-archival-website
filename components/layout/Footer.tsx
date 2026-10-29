@@ -77,8 +77,11 @@ export function Footer({ lang, dict }: FooterProps) {
         </div>
       </div>
 
+      {/* pb-36 (mobile) / md:pb-20 : espace sous le pied de page, pour que les boutons
+          flottants d'appel et WhatsApp (QuickContact) ne recouvrent pas la fin du
+          contenu quand on arrive tout en bas de la page. */}
       <div className="border-t border-navy-light">
-        <p className="mx-auto max-w-6xl px-5 py-4 text-xs text-white/60">
+        <p className="mx-auto max-w-6xl px-5 pt-4 pb-36 text-xs text-white/60 md:pb-20">
           © {year} ATG SARLU. {dict.footer.rights}
         </p>
       </div>

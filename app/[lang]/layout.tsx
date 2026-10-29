@@ -10,6 +10,7 @@ import { inter, poppins } from "@/app/fonts";
 import "@/app/globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { QuickContact } from "@/components/layout/QuickContact";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 
@@ -75,6 +76,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
           {children}
         </main>
         <Footer lang={lang} dict={dict} />
+        <QuickContact texts={dict.quickContact} />
       </body>
     </html>
   );

@@ -137,6 +137,15 @@ const fr = {
     phoneLabel: "Téléphone",
     emailLabel: "Email",
     addressLabel: "Adresse",
+    // Carte (étape 3.8).
+    map: {
+      title: "Nous trouver",
+      notice:
+        "La carte est fournie par Google Maps. L'afficher envoie des informations de connexion à Google.",
+      show: "Afficher la carte",
+      open: "Ouvrir dans Google Maps",
+      iframeTitle: "Carte Google Maps : ATG SARLU, Maetur Biteng, Yaoundé",
+    },
     // Formulaire de contact (étape 3.7).
     form: {
       title: "Envoyez-nous un message",
@@ -183,6 +192,13 @@ const fr = {
       errorFailed:
         "Votre message n'a pas pu être envoyé. Réessayez, ou contactez-nous par téléphone ou par email.",
     },
+  },
+  // Boutons flottants d'appel et WhatsApp (étape 3.8).
+  quickContact: {
+    label: "Contact rapide",
+    call: "Appeler ATG SARLU",
+    whatsapp: "Écrire à ATG SARLU sur WhatsApp",
+    whatsappMessage: "Bonjour ATG SARLU, je vous contacte depuis votre site Internet.",
   },
   // En-tête du site.
   header: {
