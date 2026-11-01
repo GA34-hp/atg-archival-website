@@ -19,7 +19,9 @@ export function WhyUsPage({ lang, dict }: ContentProps) {
             <li key={key} className="flex gap-4 rounded-2xl border border-line bg-white p-6">
               <IconBadge icon={strengthIcons[key]} />
               <div>
-                <h2 className="font-heading text-lg font-bold uppercase">{dict.strengths[key].title}</h2>
+                <h2 className="font-heading text-lg font-bold uppercase">
+                  {dict.strengths[key].title}
+                </h2>
                 <p className="mt-1 text-ink-muted">{dict.strengths[key].text}</p>
               </div>
             </li>

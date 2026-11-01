@@ -41,7 +41,11 @@ export function MapEmbed({ texts }: MapEmbedProps) {
           <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
             <MapPin aria-hidden="true" className="h-10 w-10 text-gold" />
             <p className="max-w-md text-sm text-ink-muted">{texts.notice}</p>
-            <button type="button" onClick={() => setIsLoaded(true)} className={buttonClasses("secondary")}>
+            <button
+              type="button"
+              onClick={() => setIsLoaded(true)}
+              className={buttonClasses("secondary")}
+            >
               {texts.show}
             </button>
           </div>

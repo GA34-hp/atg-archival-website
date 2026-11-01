@@ -177,7 +177,8 @@ const en: Dictionary = {
       sending: "Sending…",
       success: "Thank you! Your message has been sent. We will get back to you shortly.",
       errorNetwork: "Connection failed. Please check your internet connection and try again.",
-      errorFailed: "Your message could not be sent. Please try again, or contact us by phone or email.",
+      errorFailed:
+        "Your message could not be sent. Please try again, or contact us by phone or email.",
     },
   },
   // Boutons flottants d'appel et WhatsApp (étape 3.8).

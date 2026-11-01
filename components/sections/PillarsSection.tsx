@@ -20,7 +20,9 @@ export function PillarsSection({ dict }: Pick<ContentProps, "dict">) {
           <li key={key} className="flex items-center gap-4">
             <IconBadge icon={pillarIcons[key]} onDark />
             <div>
-              <h3 className="font-heading text-xl font-bold uppercase">{dict.pillars[key].title}</h3>
+              <h3 className="font-heading text-xl font-bold uppercase">
+                {dict.pillars[key].title}
+              </h3>
               <p className="text-white/80">{dict.pillars[key].text}</p>
             </div>
           </li>

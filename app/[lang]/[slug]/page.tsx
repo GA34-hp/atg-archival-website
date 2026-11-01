@@ -53,9 +53,7 @@ async function resolvePage(params: Promise<{ lang: string; slug: string }>) {
   return { lang, pageKey, dict: getDictionary(lang) };
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/[lang]/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/[lang]/[slug]">): Promise<Metadata> {
   const { lang, pageKey, dict } = await resolvePage(params);
   return buildPageMetadata(lang, dict, pageKey);
 }

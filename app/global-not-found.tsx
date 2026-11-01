@@ -40,17 +40,24 @@ export default function GlobalNotFound() {
 
           <div className="space-y-2">
             <h1 className="font-heading text-2xl font-bold">Page introuvable</h1>
-            <p className="text-ink-muted">La page que vous cherchez n&apos;existe pas ou a été déplacée.</p>
+            <p className="text-ink-muted">
+              La page que vous cherchez n&apos;existe pas ou a été déplacée.
+            </p>
           </div>
 
           {/* lang="en" : les lecteurs d'écran lisent ce bloc avec la prononciation anglaise. */}
           <div lang="en" className="space-y-2">
             <p className="font-heading text-xl font-bold">Page not found</p>
-            <p className="text-ink-muted">The page you are looking for does not exist or has been moved.</p>
+            <p className="text-ink-muted">
+              The page you are looking for does not exist or has been moved.
+            </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/fr" className="rounded-xl bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light">
+            <Link
+              href="/fr"
+              className="rounded-xl bg-gold px-6 py-3 font-semibold text-navy hover:bg-gold-light"
+            >
               Retour à l&apos;accueil
             </Link>
             <Link

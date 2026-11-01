@@ -14,7 +14,12 @@ export function AboutPage({ lang, dict }: ContentProps) {
     <>
       {/* <>…</> = "fragment" : regroupe plusieurs éléments sans ajouter de balise. */}
       <Section tone="white" labelledBy="page-title">
-        <SectionHeading level="h1" id="page-title" title={dict.pages.about.title} intro={dict.intro} />
+        <SectionHeading
+          level="h1"
+          id="page-title"
+          title={dict.pages.about.title}
+          intro={dict.intro}
+        />
       </Section>
       <PillarsSection dict={dict} />
       <QuoteSection dict={dict} />

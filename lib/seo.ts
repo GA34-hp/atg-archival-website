@@ -24,11 +24,15 @@ export function getPageDescription(dict: Dictionary, route: RouteKey): string {
     case "about":
       return `${dict.slogan}. ${dict.footer.signature}.`;
     case "services":
-      return `${Object.values(dict.services).map((service) => service.title).join(", ")}.`;
+      return `${Object.values(dict.services)
+        .map((service) => service.title)
+        .join(", ")}.`;
     case "clients":
       return `${dict.pages.clients.intro} ${Object.values(dict.sectors).join(", ")}.`;
     case "whyUs":
-      return `${Object.values(dict.strengths).map((strength) => strength.title).join(", ")}.`;
+      return `${Object.values(dict.strengths)
+        .map((strength) => strength.title)
+        .join(", ")}.`;
     case "contact":
       return `${siteContact.phones.map((phone) => phone.display).join(" / ")} · ${siteContact.email} · ${dict.footer.address}`;
   }

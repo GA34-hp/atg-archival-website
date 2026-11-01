@@ -23,7 +23,13 @@ export const sectorKeys = [
 export type SectorKey = (typeof sectorKeys)[number];
 
 // Les 5 arguments (affiche : "Pourquoi choisir ATG SARLU ?").
-export const strengthKeys = ["expertise", "confidentiality", "tailored", "responsive", "standards"] as const;
+export const strengthKeys = [
+  "expertise",
+  "confidentiality",
+  "tailored",
+  "responsive",
+  "standards",
+] as const;
 export type StrengthKey = (typeof strengthKeys)[number];
 
 // Les 3 piliers (affiche : "Organiser – Sécuriser – Valoriser").

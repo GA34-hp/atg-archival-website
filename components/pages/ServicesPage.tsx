@@ -14,7 +14,12 @@ export function ServicesPage({ lang, dict }: ContentProps) {
   return (
     <>
       <Section tone="white" labelledBy="page-title">
-        <SectionHeading level="h1" id="page-title" title={dict.pages.services.title} intro={dict.intro} />
+        <SectionHeading
+          level="h1"
+          id="page-title"
+          title={dict.pages.services.title}
+          intro={dict.intro}
+        />
       </Section>
 
       <Section tone="cream">
@@ -38,7 +43,10 @@ export function ServicesPage({ lang, dict }: ContentProps) {
                   {dict.services[key].items.map((item) => (
                     <li key={item} className="flex gap-3">
                       {/* Puce dorée décorative */}
-                      <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold" />
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold"
+                      />
                       <span>{item}</span>
                     </li>
                   ))}

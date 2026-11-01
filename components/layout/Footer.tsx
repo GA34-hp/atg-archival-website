@@ -34,7 +34,9 @@ export function Footer({ lang, dict }: FooterProps) {
             className="h-16 w-auto"
           />
           {/* <p className="text-sm text-white/80">{dict.slogan}</p> */}
-          <p className="font-heading text-sm font-semibold text-gold-light">{dict.footer.signature}</p>
+          <p className="font-heading text-sm font-semibold text-gold-light">
+            {dict.footer.signature}
+          </p>
         </div>
 
         {/* Colonne 2 : liens vers toutes les pages */}
@@ -45,7 +47,10 @@ export function Footer({ lang, dict }: FooterProps) {
           <ul className="mt-4 space-y-2 text-sm">
             {routeKeys.map((key) => (
               <li key={key}>
-                <Link href={getPath(lang, key)} className="text-white/80 hover:text-white hover:underline">
+                <Link
+                  href={getPath(lang, key)}
+                  className="text-white/80 hover:text-white hover:underline"
+                >
                   {dict.nav[key]}
                 </Link>
               </li>

@@ -155,7 +155,12 @@ export function ContactForm({ lang, texts }: ContactFormProps) {
   return (
     // noValidate : on désactive les bulles d'erreur du navigateur (en anglais
     // ou en français selon le navigateur) au profit de nos propres messages.
-    <form onSubmit={handleSubmit} noValidate className="space-y-6" aria-labelledby="contact-form-title">
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      className="space-y-6"
+      aria-labelledby="contact-form-title"
+    >
       <h2 id="contact-form-title" className="font-heading text-2xl font-bold">
         {texts.title}
       </h2>
@@ -206,7 +211,12 @@ export function ContactForm({ lang, texts }: ContactFormProps) {
         <label htmlFor="contact-message" className="mb-2 block font-semibold">
           {texts.labels.message}
         </label>
-        <textarea {...fieldProps("message")} rows={6} required maxLength={contactLimits.message.max} />
+        <textarea
+          {...fieldProps("message")}
+          rows={6}
+          required
+          maxLength={contactLimits.message.max}
+        />
         {fieldError("message")}
       </div>
 
@@ -244,7 +254,11 @@ export function ContactForm({ lang, texts }: ContactFormProps) {
 
       <p className="text-sm text-ink-muted">{texts.privacy}</p>
 
-      <button type="submit" disabled={isSending} className={`${buttonClasses("primary")} disabled:opacity-60`}>
+      <button
+        type="submit"
+        disabled={isSending}
+        className={`${buttonClasses("primary")} disabled:opacity-60`}
+      >
         {isSending ? texts.sending : texts.submit}
       </button>
 
