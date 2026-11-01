@@ -8,6 +8,7 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
+        "test:e2e": "playwright test",
     "preview": "serve out",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -19,6 +20,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+        "@playwright/test": "1.64.1",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
