@@ -32,14 +32,14 @@ Le site est **100 % statique** : aucun serveur applicatif, aucune base de donné
 
 ### Pages (6 routes × 2 langues = 12 pages)
 
-| Page                  | URL française                | URL anglaise            |
-| --------------------- | ---------------------------- | ----------------------- |
-| Accueil               | `/fr`                        | `/en`                   |
-| À propos              | `/fr/a-propos`               | `/en/about`             |
-| Services              | `/fr/services`               | `/en/services`          |
-| Nos clients           | `/fr/nos-clients`            | `/en/our-clients`       |
-| Pourquoi nous choisir | `/fr/pourquoi-nous-choisir`  | `/en/why-choose-us`     |
-| Contact               | `/fr/contact`                | `/en/contact`           |
+| Page                  | URL française               | URL anglaise        |
+| --------------------- | --------------------------- | ------------------- |
+| Accueil               | `/fr`                       | `/en`               |
+| À propos              | `/fr/a-propos`              | `/en/about`         |
+| Services              | `/fr/services`              | `/en/services`      |
+| Nos clients           | `/fr/nos-clients`           | `/en/our-clients`   |
+| Pourquoi nous choisir | `/fr/pourquoi-nous-choisir` | `/en/why-choose-us` |
+| Contact               | `/fr/contact`               | `/en/contact`       |
 
 - `/` redirige vers `/fr` (français = langue par défaut). Toute autre langue ou slug inconnu → page 404 du site.
 - Les URL sont **traduites** (slugs différents par langue) et définies dans une table unique ([lib/i18n/routes.ts](lib/i18n/routes.ts)).
@@ -65,17 +65,17 @@ Le site est **100 % statique** : aucun serveur applicatif, aucune base de donné
 
 Versions lues dans [package.json](package.json) (fixées exactement pour Next, React, lucide-react, vitest, prettier).
 
-| Domaine           | Technologie                                                                                  |
-| ----------------- | -------------------------------------------------------------------------------------------- |
-| Framework         | **Next.js 16.4.2** (App Router, Turbopack), **React 19.3.0**                                 |
-| Langage           | **TypeScript 5** (`strict: true`)                                                            |
-| Style             | **Tailwind CSS 4** via `@tailwindcss/turbopack`, tokens de charte dans `app/globals.css`     |
-| Polices           | `next/font/google` : **Inter** (texte) et **Poppins** 600/700 (titres), auto-hébergées au build |
-| Icônes            | `lucide-react` 1.53.0                                                                        |
-| Tests             | **Vitest 4.1.12** (unitaires, environnement Node) et **Playwright 1.64.1** (bout en bout, Chromium) |
-| Qualité           | ESLint 9 (`eslint-config-next` core-web-vitals + typescript), Prettier 3.9.10 (largeur 100)  |
-| Aperçu local      | `serve` 14.2.6                                                                               |
-| Hébergement       | **Cloudflare Pages** (fichiers `public/_headers` et `public/_redirects`)                     |
+| Domaine           | Technologie                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------- |
+| Framework         | **Next.js 16.4.2** (App Router, Turbopack), **React 19.3.0**                                                |
+| Langage           | **TypeScript 5** (`strict: true`)                                                                           |
+| Style             | **Tailwind CSS 4** via `@tailwindcss/turbopack`, tokens de charte dans `app/globals.css`                    |
+| Polices           | `next/font/google` : **Inter** (texte) et **Poppins** 600/700 (titres), auto-hébergées au build             |
+| Icônes            | `lucide-react` 1.53.0                                                                                       |
+| Tests             | **Vitest 4.1.12** (unitaires, environnement Node) et **Playwright 1.64.1** (bout en bout, Chromium)         |
+| Qualité           | ESLint 9 (`eslint-config-next` core-web-vitals + typescript), Prettier 3.9.10 (largeur 100)                 |
+| Aperçu local      | `serve` 14.2.6                                                                                              |
+| Hébergement       | **Cloudflare Pages** (fichiers `public/_headers` et `public/_redirects`)                                    |
 | Services externes | **EmailJS** (envoi des messages), **Google reCAPTCHA v2**, **Google Maps** (iframe), **WhatsApp** (`wa.me`) |
 
 > ⚠️ Cette version de Next.js a des changements incompatibles avec les versions antérieures. [AGENTS.md](AGENTS.md) demande de lire la documentation fournie dans `node_modules/next/dist/docs/` avant toute modification liée au framework.
@@ -93,7 +93,7 @@ Versions lues dans [package.json](package.json) (fixées exactement pour Next, R
 Prérequis : **Node.js** compatible avec Next 16 (voir la documentation de Next) et npm.
 
 ```bash
-npm install
+npm ci
 cp .env.example .env.local     # puis remplir les valeurs (voir §4)
 npm run dev                    # http://localhost:3000
 ```
@@ -113,15 +113,15 @@ npm run preview                # sert out/ avec "serve"
 
 ## 4. Variables d'environnement
 
-Modèle versionné : [.env.example](.env.example). Le fichier réel `.env.local` n'est **pas** versionné (`.gitignore`). En production, les mêmes variables se saisissent dans Cloudflare Pages (*Settings → Variables and Secrets*), puis on redéploie.
+Modèle versionné : [.env.example](.env.example). Le fichier réel `.env.local` n'est **pas** versionné (`.gitignore`). En production, les mêmes variables se saisissent dans Cloudflare Pages (_Settings → Variables and Secrets_), puis on redéploie.
 
-| Variable                           | Rôle                                                                                     | Obligatoire |
-| ---------------------------------- | ---------------------------------------------------------------------------------------- | ----------- |
-| `NEXT_PUBLIC_SITE_URL`             | URL publique sans `/` final (canonique, hreflang, sitemap, robots, Open Graph)           | **Oui**     |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID`   | Identifiant du service EmailJS                                                           | Pour l'envoi |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`  | Identifiant du modèle d'email EmailJS                                                    | Pour l'envoi |
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`   | Clé **publique** EmailJS                                                                 | Pour l'envoi |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`   | Clé **de site** reCAPTCHA v2 (la clé secrète se configure dans EmailJS)                  | Recommandée |
+| Variable                          | Rôle                                                                           | Obligatoire  |
+| --------------------------------- | ------------------------------------------------------------------------------ | ------------ |
+| `NEXT_PUBLIC_SITE_URL`            | URL publique sans `/` final (canonique, hreflang, sitemap, robots, Open Graph) | **Oui**      |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID`  | Identifiant du service EmailJS                                                 | Pour l'envoi |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Identifiant du modèle d'email EmailJS                                          | Pour l'envoi |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`  | Clé **publique** EmailJS                                                       | Pour l'envoi |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`  | Clé **de site** reCAPTCHA v2 (la clé secrète se configure dans EmailJS)        | Recommandée  |
 
 Comportements vérifiés dans le code :
 
@@ -135,17 +135,17 @@ Comportements vérifiés dans le code :
 
 ## 5. Scripts npm
 
-| Commande                | Action                                                          |
-| ----------------------- | --------------------------------------------------------------- |
-| `npm run dev`           | Serveur de développement                                        |
-| `npm run build`         | Export statique dans `out/`                                     |
-| `npm run preview`       | Sert `out/` localement (`serve out`)                            |
-| `npm run lint`          | ESLint                                                          |
-| `npm run typecheck`     | `next typegen && tsc --noEmit`                                  |
-| `npm test`              | Tests unitaires Vitest (`vitest run`)                           |
-| `npm run test:e2e`      | Tests de bout en bout Playwright (construit le site puis le teste, voir §11) |
-| `npm run format`        | Formate tout le projet avec Prettier                            |
-| `npm run format:check`  | Vérifie le formatage sans modifier                              |
+| Commande               | Action                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| `npm run dev`          | Serveur de développement                                                     |
+| `npm run build`        | Export statique dans `out/`                                                  |
+| `npm run preview`      | Sert `out/` localement (`serve out`)                                         |
+| `npm run lint`         | ESLint                                                                       |
+| `npm run typecheck`    | `next typegen && tsc --noEmit`                                               |
+| `npm test`             | Tests unitaires Vitest (`vitest run`)                                        |
+| `npm run test:e2e`     | Tests de bout en bout Playwright (construit le site puis le teste, voir §11) |
+| `npm run format`       | Formate tout le projet avec Prettier                                         |
+| `npm run format:check` | Vérifie le formatage sans modifier                                           |
 
 Avant de livrer : `npm run lint`, `npm run typecheck`, `npm test`, `npm run format:check`, puis `npm run build` et `npm run test:e2e`.
 
@@ -216,7 +216,7 @@ Ajouter une langue : l'ajouter dans `locales`, créer son dictionnaire, ses slug
 
 1. Clic sur « Envoyer » (double-clic ignoré pendant l'envoi).
 2. **Champ piège** (honeypot) rempli → faux succès affiché, **rien n'est envoyé**.
-3. **Validation** ([lib/contact/validation.ts](lib/contact/validation.ts)), fonction pure qui renvoie des *codes* d'erreur (`required`, `tooShort`, `tooLong`, `invalid`) traduits par le dictionnaire. Premier champ en erreur reçoit le focus.
+3. **Validation** ([lib/contact/validation.ts](lib/contact/validation.ts)), fonction pure qui renvoie des _codes_ d'erreur (`required`, `tooShort`, `tooLong`, `invalid`) traduits par le dictionnaire. Premier champ en erreur reçoit le focus.
 4. **Captcha** : si la clé de site est configurée, un jeton reCAPTCHA est exigé.
 5. **Envoi** ([lib/contact/send.ts](lib/contact/send.ts)) : `fetch` direct vers `https://api.emailjs.com/api/v1.0/email/send` (pas de bibliothèque `@emailjs/browser`, pour limiter les dépendances). Le jeton est transmis dans `g-recaptcha-response`.
 6. Erreurs distinguées : `config`, `network`, `rejected` → message visiteur générique, détail technique uniquement dans la console.
@@ -224,12 +224,12 @@ Ajouter une langue : l'ajouter dans `locales`, créer son dictionnaire, ses slug
 
 Règles de validation (constantes `contactLimits`, réutilisées par les attributs `maxLength`) :
 
-| Champ     | Règles                                                                        |
-| --------- | ----------------------------------------------------------------------------- |
-| Nom       | obligatoire, 2–100 caractères, sans retour à la ligne                         |
-| Email     | obligatoire, ≤ 254 caractères, format `x@y.z` sans espace ni saut de ligne    |
+| Champ     | Règles                                                                         |
+| --------- | ------------------------------------------------------------------------------ |
+| Nom       | obligatoire, 2–100 caractères, sans retour à la ligne                          |
+| Email     | obligatoire, ≤ 254 caractères, format `x@y.z` sans espace ni saut de ligne     |
 | Téléphone | facultatif ; caractères `+ 0-9 espace ( ) . -`, 6–15 chiffres, ≤ 30 caractères |
-| Message   | obligatoire, 10–2000 caractères                                               |
+| Message   | obligatoire, 10–2000 caractères                                                |
 
 Le modèle EmailJS doit utiliser les variables `{{name}}`, `{{email}}`, `{{phone}}`, `{{message}}`.
 
@@ -242,16 +242,16 @@ Le modèle EmailJS doit utiliser les variables `{{name}}`, `{{email}}`, `{{phone
 
 Définie uniquement dans `app/globals.css`. La palette Tailwind par défaut est **supprimée** (`--color-*: initial`) : une classe hors charte comme `text-red-500` ne produit aucun style.
 
-| Token                | Valeur    | Usage                                                      |
-| -------------------- | --------- | ---------------------------------------------------------- |
-| `navy`               | `#002148` | Couleur principale, textes, bandeaux                       |
-| `navy-deep` / `-light` | `#001530` / `#1d3451` | Pied de page, séparateurs                       |
-| `gold`               | `#bd830b` | Fonds de boutons, traits, icônes (jamais en texte sur fond clair) |
-| `gold-light`         | `#e3a62b` | Texte/icônes sur fond marine                               |
-| `gold-dark`          | `#8f6208` | Texte doré sur fond clair                                  |
-| `cream`              | `#f7f1e7` | Fond principal                                             |
-| `error` / `success`  | `#b3261e` / `#2f6b4f` | États du formulaire                            |
-| `whatsapp`           | `#128c7e` | Bouton WhatsApp                                            |
+| Token                  | Valeur                | Usage                                                             |
+| ---------------------- | --------------------- | ----------------------------------------------------------------- |
+| `navy`                 | `#002148`             | Couleur principale, textes, bandeaux                              |
+| `navy-deep` / `-light` | `#001530` / `#1d3451` | Pied de page, séparateurs                                         |
+| `gold`                 | `#bd830b`             | Fonds de boutons, traits, icônes (jamais en texte sur fond clair) |
+| `gold-light`           | `#e3a62b`             | Texte/icônes sur fond marine                                      |
+| `gold-dark`            | `#8f6208`             | Texte doré sur fond clair                                         |
+| `cream`                | `#f7f1e7`             | Fond principal                                                    |
+| `error` / `success`    | `#b3261e` / `#2f6b4f` | États du formulaire                                               |
+| `whatsapp`             | `#128c7e`             | Bouton WhatsApp                                                   |
 
 Les rapports de contraste (WCAG 2) sont documentés en commentaire dans `globals.css`.
 
@@ -317,13 +317,13 @@ npm test
 
 Environnement Node, fichiers `tests/**/*.test.ts` (logique pure, sans rendu) :
 
-| Fichier                     | Vérifie                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------- |
-| `validation.test.ts`        | Règles du formulaire, champs vides/espaces, bornes de longueur, refus des sauts de ligne     |
-| `routes.test.ts`            | `getPath`, table des slugs, `getPageKey`/`parsePath`, aller-retour, canonique + hreflang     |
-| `dictionaries.test.ts`      | FR/EN ont les **mêmes chemins**, aucun texte vide, traduction différente du français         |
-| `seo.test.ts`               | Titre, description et canonique de chaque page/langue ; descriptions < 180 caractères        |
-| `site.test.ts`              | Liens `tel:` au format international, numéro WhatsApp, encodage du message, `getSiteUrl`     |
+| Fichier                | Vérifie                                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------------------- |
+| `validation.test.ts`   | Règles du formulaire, champs vides/espaces, bornes de longueur, refus des sauts de ligne |
+| `routes.test.ts`       | `getPath`, table des slugs, `getPageKey`/`parsePath`, aller-retour, canonique + hreflang |
+| `dictionaries.test.ts` | FR/EN ont les **mêmes chemins**, aucun texte vide, traduction différente du français     |
+| `seo.test.ts`          | Titre, description et canonique de chaque page/langue ; descriptions < 180 caractères    |
+| `site.test.ts`         | Liens `tel:` au format international, numéro WhatsApp, encodage du message, `getSiteUrl` |
 
 ### 11.2 Tests de bout en bout (Playwright)
 
@@ -336,12 +336,12 @@ Configuration : [playwright.config.ts](playwright.config.ts). Avant les tests, P
 
 Les variables d'environnement sont **fictives et définies par la config** (prioritaires sur `.env.local`) : `NEXT_PUBLIC_SITE_URL=http://localhost:3100`, identifiants EmailJS `*_test` et la clé de test publique de Google pour reCAPTCHA. Les services externes sont **imités** ([e2e/fakes.ts](e2e/fakes.ts), via `page.route`) : aucun email n'est envoyé, aucun appel à Google.
 
-| Fichier                  | Vérifie                                                                                                                       |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `e2e/navigation.spec.ts` | `/` → `/fr` ; `lang`, titre et un seul `h1` par page ; sélecteur de langue vers la **même** page ; 404 bilingue (statut 404) ; lien d'évitement au premier Tab ; ancre « En savoir plus » vers le bon service ; `sitemap.xml` (12 URL) et `robots.txt` |
+| Fichier                  | Vérifie                                                                                                                                                                                                                                                                             |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `e2e/navigation.spec.ts` | `/` → `/fr` ; `lang`, titre et un seul `h1` par page ; sélecteur de langue vers la **même** page ; 404 bilingue (statut 404) ; lien d'évitement au premier Tab ; ancre « En savoir plus » vers le bon service ; `sitemap.xml` (12 URL) et `robots.txt`                              |
 | `e2e/contact.spec.ts`    | Erreurs d'un formulaire vide + focus + `aria-invalid` ; reCAPTCHA exigé ; envoi réussi (contenu exact de la requête EmailJS) puis formulaire vidé ; refus EmailJS (saisie conservée) ; réseau coupé ; **champ piège** (faux succès, rien envoyé) ; Maps non contactée avant le clic |
-| `e2e/mobile.spec.ts`     | (mobile seulement) menu : ouverture, fermeture par Échap, fermeture après clic ; boutons appel et WhatsApp traduits ; aucun débordement horizontal sur 4 pages |
-| `e2e/security.spec.ts`   | Applique la **vraie CSP lue dans `public/_headers`** à chaque page : le parcours normal (navigation, Maps, formulaire, reCAPTCHA, EmailJS) ne déclenche **aucune violation**, et un script/une requête vers un site inconnu sont bien **bloqués** |
+| `e2e/mobile.spec.ts`     | (mobile seulement) menu : ouverture, fermeture par Échap, fermeture après clic ; boutons appel et WhatsApp traduits ; aucun débordement horizontal sur 4 pages                                                                                                                      |
+| `e2e/security.spec.ts`   | Applique la **vraie CSP lue dans `public/_headers`** à chaque page : le parcours normal (navigation, Maps, formulaire, reCAPTCHA, EmailJS) ne déclenche **aucune violation**, et un script/une requête vers un site inconnu sont bien **bloqués**                                   |
 
 ### 11.3 Ce que les tests ne prouvent pas
 
@@ -367,15 +367,15 @@ Le build échoue volontairement si `NEXT_PUBLIC_SITE_URL` manque, afin d'éviter
 
 ## 13. Modifier le contenu
 
-| Je veux modifier…                           | Fichier                                                                      |
-| ------------------------------------------- | ---------------------------------------------------------------------------- |
-| Un texte (FR)                               | [lib/i18n/dictionaries/fr.ts](lib/i18n/dictionaries/fr.ts)                   |
-| Un texte (EN)                               | [lib/i18n/dictionaries/en.ts](lib/i18n/dictionaries/en.ts) (mêmes clés que FR) |
-| Téléphones, email, WhatsApp, requête carte  | [lib/site.ts](lib/site.ts)                                                   |
-| Un slug d'URL                               | [lib/i18n/routes.ts](lib/i18n/routes.ts) (`pageSlugs`)                       |
-| Une couleur / une police                    | [app/globals.css](app/globals.css) / [app/fonts.ts](app/fonts.ts)            |
-| Un service, secteur, atout ou pilier        | [lib/content.ts](lib/content.ts) + [components/content-icons.ts](components/content-icons.ts) + les deux dictionnaires |
-| Les en-têtes de sécurité                    | [public/_headers](public/_headers)                                           |
+| Je veux modifier…                          | Fichier                                                                                                                |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Un texte (FR)                              | [lib/i18n/dictionaries/fr.ts](lib/i18n/dictionaries/fr.ts)                                                             |
+| Un texte (EN)                              | [lib/i18n/dictionaries/en.ts](lib/i18n/dictionaries/en.ts) (mêmes clés que FR)                                         |
+| Téléphones, email, WhatsApp, requête carte | [lib/site.ts](lib/site.ts)                                                                                             |
+| Un slug d'URL                              | [lib/i18n/routes.ts](lib/i18n/routes.ts) (`pageSlugs`)                                                                 |
+| Une couleur / une police                   | [app/globals.css](app/globals.css) / [app/fonts.ts](app/fonts.ts)                                                      |
+| Un service, secteur, atout ou pilier       | [lib/content.ts](lib/content.ts) + [components/content-icons.ts](components/content-icons.ts) + les deux dictionnaires |
+| Les en-têtes de sécurité                   | [public/_headers](public/_headers)                                                                                     |
 
 Il n'y a **pas d'interface d'administration** : toute modification de texte passe par le code puis un redéploiement.
 
@@ -385,13 +385,13 @@ Ajouter une page : l'ajouter dans `pageSlugs` (routes.ts), créer son composant 
 
 ## 14. Limites connues et points à confirmer
 
-- ⚠️ **Adresse exacte / coordonnées GPS** : `mapQuery` vaut « Maetur Biteng, Yaoundé, Cameroun » et est marqué *à confirmer par le client* dans [lib/site.ts](lib/site.ts).
+- ⚠️ **Adresse exacte / coordonnées GPS** : `mapQuery` vaut « Maetur Biteng, Yaoundé, Cameroun » et est marqué _à confirmer par le client_ dans [lib/site.ts](lib/site.ts).
 - ⚠️ **Traductions anglaises** : à faire valider par le client (indiqué dans `en.ts`).
 - ⚠️ **Configuration EmailJS / reCAPTCHA** (domaines, captcha, destinataire, quotas) : hors dépôt, à vérifier dans les tableaux de bord.
 - ⚠️ **Option expérimentale** `globalNotFound` et format d'iframe Maps non documenté : à surveiller lors des mises à jour.
 - Pas de CMS ni d'interface d'administration (site statique).
 - Pas de rapport Lighthouse, de test d'accessibilité automatisé ni de test hors Chromium dans le dépôt (voir §11.3).
-- ⚠️ Les tests de bout en bout, `playwright.config.ts` et les modifications de `package.json` / `.gitignore` associées ne sont pas encore commités. L'indentation des deux lignes ajoutées dans `package.json` est irrégulière : `npm run format:check` peut échouer tant que `npm run format` n'a pas été lancé.
+ L'indentation des deux lignes ajoutées dans `package.json` est irrégulière : `npm run format:check` peut échouer tant que `npm run format` n'a pas été lancé.
 - Les contenus reprennent l'affiche et le cahier des charges du client : **rien d'inventé** (pas de chiffres, ni de certifications).
 
 ---
