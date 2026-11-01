@@ -47,7 +47,7 @@ export function Header({ lang, dict }: HeaderProps) {
           <Image
             src="/logo/atg-entete.svg"
             alt={dict.header.homeLink}
-            width={144}
+            width={105}
             height={48}
             priority
             className="hidden h-12 w-auto sm:block"

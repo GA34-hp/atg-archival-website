@@ -34,9 +34,15 @@ export function getPageDescription(dict: Dictionary, route: RouteKey): string {
   }
 }
 
-// Titre de la page : l'accueil utilise le titre par défaut du layout (le nom du site).
-function getPageTitle(dict: Dictionary, route: RouteKey): string | undefined {
-  return route === "home" ? undefined : dict.pages[route].title;
+// Titre COMPLET de l'onglet et des résultats de recherche (le même sert à Open Graph) :
+// - Pages intérieures : "À propos | ATG SARLU"
+// - Accueil : "ATG SARLU – L'expertise au service de vos archives"
+// ⚠️ Ne jamais renvoyer title: undefined : Next effacerait le titre du layout
+// et la page n'aurait plus de <title> (bug détecté par Lighthouse à l'étape 3.10).
+function getPageTitle(dict: Dictionary, route: RouteKey): string {
+  return route === "home"
+    ? `${dict.meta.siteName} – ${dict.slogan}`
+    : `${dict.pages[route].title} | ${dict.meta.siteName}`;
 }
 
 export function buildPageMetadata(lang: Locale, dict: Dictionary, route: RouteKey): Metadata {
@@ -44,7 +50,9 @@ export function buildPageMetadata(lang: Locale, dict: Dictionary, route: RouteKe
   const description = getPageDescription(dict, route);
 
   return {
-    title,
+    // "absolute" : titre utilisé tel quel, sans le modèle "%s | ATG SARLU" du layout
+    // (il contient déjà le nom du site).
+    title: { absolute: title },
     description,
     // canonical + hreflang (adresses relatives, complétées par metadataBase).
     alternates: getAlternates(lang, route),
@@ -55,7 +63,7 @@ export function buildPageMetadata(lang: Locale, dict: Dictionary, route: RouteKe
       siteName: dict.meta.siteName,
       locale: openGraphLocales[lang],
       url: getPath(lang, route),
-      title: title ? `${title} | ${dict.meta.siteName}` : dict.meta.siteName,
+      title,
       description,
     },
   };
