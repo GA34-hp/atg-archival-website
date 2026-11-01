@@ -391,7 +391,7 @@ Ajouter une page : l'ajouter dans `pageSlugs` (routes.ts), créer son composant 
 - ⚠️ **Option expérimentale** `globalNotFound` et format d'iframe Maps non documenté : à surveiller lors des mises à jour.
 - Pas de CMS ni d'interface d'administration (site statique).
 - Pas de rapport Lighthouse, de test d'accessibilité automatisé ni de test hors Chromium dans le dépôt (voir §11.3).
- L'indentation des deux lignes ajoutées dans `package.json` est irrégulière : `npm run format:check` peut échouer tant que `npm run format` n'a pas été lancé.
+  L'indentation des deux lignes ajoutées dans `package.json` est irrégulière : `npm run format:check` peut échouer tant que `npm run format` n'a pas été lancé.
 - Les contenus reprennent l'affiche et le cahier des charges du client : **rien d'inventé** (pas de chiffres, ni de certifications).
 
 ---
