@@ -1,0 +1,13 @@
+# .prettierignore — fichiers que Prettier ne doit PAS reformater.
+# (Prettier ignore déjà node_modules et les fichiers listés dans .gitignore.)
+
+# Généré automatiquement par npm : ne jamais modifier à la main.
+package-lock.json
+
+# Fichiers lus par Cloudflare au format texte strict : une reformatation
+# (retour à la ligne dans la CSP, par exemple) les casserait.
+public/_headers
+public/_redirects
+
+# Logos et icônes fournis par le designer.
+public/**/*.svg

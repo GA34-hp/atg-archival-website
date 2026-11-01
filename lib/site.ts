@@ -20,7 +20,6 @@ export const siteContact = {
     },
   ],
   email: "contact@atg-sarlu.com",
-  // ⚠️ À CONFIRMER par le client : numéro WhatsApp.
   // Format imposé par WhatsApp : indicatif + numéro, chiffres uniquement (pas de +, pas d'espace).
   whatsappNumber: "237691531946",
   // ⚠️ À CONFIRMER par le client : adresse exacte ou coordonnées GPS ("3.8480,11.5021").

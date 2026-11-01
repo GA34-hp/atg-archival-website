@@ -33,7 +33,7 @@ export function Footer({ lang, dict }: FooterProps) {
             height={64}
             className="h-16 w-auto"
           />
-          <p className="text-sm text-white/80">{dict.slogan}</p>
+          {/* <p className="text-sm text-white/80">{dict.slogan}</p> */}
           <p className="font-heading text-sm font-semibold text-gold-light">{dict.footer.signature}</p>
         </div>
 
