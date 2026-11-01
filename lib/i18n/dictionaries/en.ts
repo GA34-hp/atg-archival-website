@@ -182,10 +182,10 @@ const en: Dictionary = {
   },
   // Boutons flottants d'appel et WhatsApp (étape 3.8).
   quickContact: {
-    label: "Contact rapide",
-    call: "Appeler ATG SARLU",
-    whatsapp: "Écrire à ATG SARLU sur WhatsApp",
-    whatsappMessage: "Bonjour ATG SARLU, je vous contacte depuis votre site Internet.",
+    label: "Quick contact",
+    call: "Call ATG SARLU",
+    whatsapp: "Message ATG SARLU on WhatsApp",
+    whatsappMessage: "Hello ATG SARLU, I am contacting you from your website.",
   },
   header: {
     skipToContent: "Skip to main content",

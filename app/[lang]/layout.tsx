@@ -13,6 +13,7 @@ import { Header } from "@/components/layout/Header";
 import { QuickContact } from "@/components/layout/QuickContact";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getSiteUrl } from "@/lib/site-url";
 
 // Liste des valeurs de [lang] à générer au build : /fr et /en.
 // Sans cette fonction, l'export statique refuse de construire une route dynamique.
@@ -23,8 +24,8 @@ export function generateStaticParams() {
 // Toute autre valeur (/de, /es…) → 404 au lieu d'essayer de générer la page.
 export const dynamicParams = false;
 
-// Titre, description et icônes, dans la langue de la page.
-// "template" : les pages fourniront "À propos", affiché "À propos | ATG SARLU".
+// Titre, description, icônes et adresse de base, dans la langue de la page.
+// Chaque page complète avec ses propres métadonnées (lib/seo.ts).
 export async function generateMetadata({
   params,
 }: {
@@ -34,6 +35,9 @@ export async function generateMetadata({
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
   return {
+    // Base des adresses absolues (canonique, hreflang, Open Graph) : vient de
+    // NEXT_PUBLIC_SITE_URL. Le build échoue si elle manque (voir lib/site-url.ts).
+    metadataBase: getSiteUrl(),
     title: { default: dict.meta.siteName, template: `%s | ${dict.meta.siteName}` },
     description: dict.meta.description,
     // Favicon et icônes du pack logo (fichiers dans public/) : Next génère les

@@ -17,6 +17,7 @@ import type { ContentProps } from "@/components/sections/types";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getPageKey, pageKeys, pageSlugs, type PageKey } from "@/lib/i18n/routes";
+import { buildPageMetadata } from "@/lib/seo";
 
 // Quelle page afficher pour chaque clé de page.
 // "Record<PageKey, …>" : une page ajoutée dans routes.ts sans composant ici
@@ -55,8 +56,8 @@ async function resolvePage(params: Promise<{ lang: string; slug: string }>) {
 export async function generateMetadata({
   params,
 }: PageProps<"/[lang]/[slug]">): Promise<Metadata> {
-  const { pageKey, dict } = await resolvePage(params);
-  return { title: dict.pages[pageKey].title };
+  const { lang, pageKey, dict } = await resolvePage(params);
+  return buildPageMetadata(lang, dict, pageKey);
 }
 
 export default async function InnerPage({ params }: PageProps<"/[lang]/[slug]">) {

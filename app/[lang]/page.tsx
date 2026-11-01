@@ -3,6 +3,7 @@
 // Contenu (cahier des charges) : slogan, courte présentation, aperçu des
 // 5 services, citation, bouton "Contactez-nous".
 
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { PillarsSection } from "@/components/sections/PillarsSection";
@@ -14,6 +15,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getPath } from "@/lib/i18n/routes";
+import { buildPageMetadata } from "@/lib/seo";
+
+// Référencement de l'accueil : description, canonique, hreflang, Open Graph.
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  return buildPageMetadata(lang, getDictionary(lang), "home");
+}
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;

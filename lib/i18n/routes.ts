@@ -3,8 +3,7 @@
 // SOURCE UNIQUE des adresses : aucun lien du site ne doit être écrit "en dur",
 // on les construit toujours avec getPath().
 
-import { isLocale, type Locale } from "./config";
-
+import { defaultLocale, isLocale, locales, type Locale } from "./config";
 // Clé interne de chaque page (en anglais, stable) → slug affiché dans l'URL, par langue.
 // "satisfies" vérifie que CHAQUE page a un slug pour CHAQUE langue,
 // sans perdre les valeurs exactes que "as const" a figées.
@@ -56,4 +55,20 @@ export function parsePath(pathname: string): { locale: Locale; route: RouteKey }
   if (!second) return { locale: first, route: "home" };
   const pageKey = getPageKey(first, second);
   return pageKey ? { locale: first, route: pageKey } : undefined;
+}
+
+// Liens entre les versions linguistiques d'une même page, pour les moteurs de
+// recherche (balises <link rel="canonical"> et <link rel="alternate" hreflang>).
+// getAlternates("fr", "about") →
+//   { canonical: "/fr/a-propos",
+//     languages: { fr: "/fr/a-propos", en: "/en/about", "x-default": "/fr/a-propos" } }
+// Adresses RELATIVES : Next les complète avec metadataBase (défini dans le layout).
+// "x-default" : la version à proposer quand la langue du visiteur n'est ni fr ni en.
+export function getAlternates(locale: Locale, route: RouteKey) {
+  const languages: Record<string, string> = {};
+  for (const lang of locales) {
+    languages[lang] = getPath(lang, route);
+  }
+  languages["x-default"] = getPath(defaultLocale, route);
+  return { canonical: getPath(locale, route), languages };
 }
