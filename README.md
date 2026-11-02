@@ -90,7 +90,7 @@ Versions lues dans [package.json](package.json) (fixées exactement pour Next, R
 
 ## 3. Démarrage rapide
 
-Prérequis : **Node.js** compatible avec Next 16 (voir la documentation de Next) et npm.
+Prérequis : **Node.js 24** (version exacte dans [.node-version](.node-version), également lue par GitHub Actions et Cloudflare) et le npm fourni avec.
 
 ```bash
 npm ci

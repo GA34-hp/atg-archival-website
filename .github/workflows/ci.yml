@@ -45,10 +45,12 @@ jobs:
         with:
           node-version-file: .node-version
           # Met en cache les paquets téléchargés (clé = package-lock.json).
-          cache: npm
+          cache:
+            npm
 
-      # npm ci : installe EXACTEMENT le lockfile, et échoue s'il n'est pas
-      # cohérent avec package.json. Node 22.21.0 fournit npm 10, comme Cloudflare.
+            # npm ci : installe EXACTEMENT le lockfile, et échoue s'il n'est pas
+      # cohérent avec package.json. npm est celui fourni avec Node (.node-version),
+      # exactement comme sur Cloudflare.
       - name: Installer les dépendances
         run: npm ci
 
