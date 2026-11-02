@@ -43,17 +43,16 @@ jobs:
       - name: Installer Node.js (version lue dans .node-version)
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version-file: .node-version
-          # Met en cache les paquets téléchargés (clé = package-lock.json).
-          cache:
-            npm
+          node-version-file:
+            .node-version
+            # Met en cache les paquets téléchargés (clé = package-lock.json).
+          cache: npm
 
-            # npm ci : installe EXACTEMENT le lockfile, et échoue s'il n'est pas
+      # npm ci : installe EXACTEMENT le lockfile, et échoue s'il n'est pas
       # cohérent avec package.json. npm est celui fourni avec Node (.node-version),
       # exactement comme sur Cloudflare.
       - name: Installer les dépendances
         run: npm ci
-
       - name: Lint (ESLint)
         run: npm run lint
 
